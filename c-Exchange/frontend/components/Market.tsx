@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const MarketView = () => {
+
     return <div>
         <div className="flex items-center flex-row bg-[#14151C] relative w-full rounded-lg">
             <div className="flex items-center flex-row no-scrollbar mr-4 h-[72px] w-full overflow-auto pl-4">
@@ -11,7 +12,7 @@ export const MarketView = () => {
                             <div className="flex items-center flex-row flex-wrap gap-x-6">
                                 <div className="flex flex-col h-full justify-center">
                                     <p className="font-medium tabular-nums text-green-text text-lg"></p>
-                                    <p className="text-high-emphasis text-left text-sm font-normal tabular-nums"></p>
+                                    <p className="text-left text-sm font-normal tabular-nums"></p>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 Change</p>
@@ -19,15 +20,15 @@ export const MarketView = () => {
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 High</p>
-                                    <span className="text-high-emphasis mt-1 text-sm leading-4 font-normal tabular-nums"></span>
+                                    <span className=" mt-1 text-sm leading-4 font-normal tabular-nums"></span>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 Low</p>
-                                    <span className="text-high-emphasis mt-1 text-sm leading-4 font-normal tabular-nums"></span>
+                                    <span className=" mt-1 text-sm leading-4 font-normal tabular-nums"></span>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 Volume (USD)</p>
-                                    <span className="text-high-emphasis mt-1 text-sm leading-4 font-normal tabular-nums"></span>
+                                    <span className=" mt-1 text-sm leading-4 font-normal tabular-nums"></span>
                                 </div>
                             </div>  
                         </div>
