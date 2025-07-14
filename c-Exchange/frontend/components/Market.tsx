@@ -8,7 +8,7 @@ export const MarketView = () => {
             <div className="flex items-center flex-row no-scrollbar mr-4 h-[72px] w-full overflow-auto pl-4">
                 <div className="flex justify-between flex-row w-full gap-4">
                         <div className="flex flex-row shrink-0 gap-[32px]">
-                            <Ticker />
+                                <Ticker />
                             <div className="flex items-center flex-row flex-wrap gap-x-6">
                                 <div className="flex flex-col h-full justify-center">
                                     <p className="font-medium tabular-nums text-green-text text-lg"></p>
