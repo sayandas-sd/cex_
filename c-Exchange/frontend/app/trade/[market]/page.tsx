@@ -17,7 +17,7 @@ export default function Trade() {
             <div className="flex flex-row mb-4 h-screen flex-1 gap-2 overflow-hidden px-4">
                 <div className="flex flex-col flex-1">
                     <div className="flex flex-col gap-2">
-                            <MarketView />
+                            <MarketView market={market as string}/>
                          <div className="flex flex-col">
                             <div className="flex flex-row relative gap-2">
                                 <div className="flex flex-col bg-[#14151c] w-1/3 max-w-[300px] min-w-[260px] overflow-hidden rounded-lg">

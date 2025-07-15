@@ -15,7 +15,7 @@ export const AskTable = ({ asks }: { asks: [string, string][] }) => {
 
     asksWithTotal.reverse();
 
-    return <div>
+    return <div className="p-3">
                 {asksWithTotal.map(([price, quantity, total]) => <Ask maxTotal={maxTotal} key={price} price={price} quantity={quantity} total={total} />)}
            
         </div>
@@ -52,7 +52,7 @@ function Ask({price, quantity, total, maxTotal}: {price: string, quantity: strin
         <div className="ml-10">
             {quantity}
         </div>
-        <div>
+        <div className="ml-5">
             {total?.toFixed(2)}
         </div>
     </div>

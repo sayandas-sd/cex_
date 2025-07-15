@@ -1,7 +1,17 @@
+import { getTicker } from "@/utils/connection";
+import { Ticker } from "@/utils/types";
+
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useState } from "react";
 
-export const MarketView = () => {
+export const MarketView = ({market}: {market: string}) => {
+
+     const [ticker, setTicker] = useState<Ticker | null>(null);
+
+    useEffect(() => {
+        getTicker(market).then(setTicker);
+    }, [market])
     
 
     return <div>
@@ -9,27 +19,27 @@ export const MarketView = () => {
             <div className="flex items-center flex-row no-scrollbar mr-4 h-[72px] w-full overflow-auto pl-4">
                 <div className="flex justify-between flex-row w-full gap-4">
                         <div className="flex flex-row shrink-0 gap-[32px]">
-                                <Ticker />
+                                <TickerName market={market}/>
                             <div className="flex items-center flex-row flex-wrap gap-x-6">
                                 <div className="flex flex-col h-full justify-center">
-                                    <p className="font-medium tabular-nums text-green-text text-lg"></p>
-                                    <p className="text-left text-sm font-normal tabular-nums"></p>
+                                    <p className={`font-medium tabular-nums text-lg ${Number(ticker?.lastPrice) > 0 ? "text-green-500" : "text-red-500"}`}>${ticker?.lastPrice}</p>
+                                    <p className="text-left text-sm font-bold tabular-nums">${ticker?.lastPrice}</p>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 Change</p>
-                                    <span className="mt-1 text-sm leading-4 font-normal tabular-nums text-red-text"></span>
+                                    <span className={`mt-1 text-sm leading-4 font-bold tabular-nums text-red-text ${Number(ticker?.priceChange) > 0 ? "text-green-500" : "text-red-500"}`}>{Number(ticker?.priceChange) > 0 ? "+" : " "} {ticker?.priceChange} {Number(ticker?.priceChangePercent)?.toFixed(2)}%</span>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 High</p>
-                                    <span className=" mt-1 text-sm leading-4 font-normal tabular-nums"></span>
+                                    <span className=" mt-1 text-sm leading-4 font-bold tabular-nums">{ticker?.high}</span>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 Low</p>
-                                    <span className=" mt-1 text-sm leading-4 font-normal tabular-nums"></span>
+                                    <span className=" mt-1 text-sm leading-4 font-bold tabular-nums">{ticker?.low}</span>
                                 </div>
                                 <div className="flex justify-center flex-col relative">
                                     <p className="font-medium text-gray-400 text-xs font-semibold">24 Volume (USD)</p>
-                                    <span className=" mt-1 text-sm leading-4 font-normal tabular-nums"></span>
+                                    <span className=" mt-1 text-sm leading-4 font-bold tabular-nums">{ticker?.volume}</span>
                                 </div>
                             </div>  
                         </div>
@@ -41,7 +51,7 @@ export const MarketView = () => {
 } 
 
 
-const Ticker = () => {
+export const TickerName = ({market}: {market: string}) => {
     return <div>
          <Link href="/trade/SOL_USDC">
                 <div className="flex items-center justify-between flex-row bg-gray-700 cursor-pointer rounded-xl p-2 hover:opacity-90">
@@ -50,10 +60,7 @@ const Ticker = () => {
                                 <div className="flex flex-row relative shrink-0">
                                     <Image src={'/sol.webp'} alt="SOl Logo" width={24} height={24} className="z-10 rounded-full h-6 w-6 mr-3"/>
                                     <p className="font-medium text-white text-nowrap font-semibold undefined">
-                                        SOL
-                                        <span className="text-gray-400 font-semibold"> 
-                                            /USD
-                                        </span>
+                                        {market.replace("_", " / ")}
                                     </p>
                                 </div>
                             </div>

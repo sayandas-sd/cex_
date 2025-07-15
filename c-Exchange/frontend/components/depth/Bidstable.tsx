@@ -6,7 +6,7 @@ export const BidTable = ({ bids }: {bids: [string, string][]}) => {
     const bidsWithTotal: [string, string, number][] = relevantBids.map(([price, quantity]) => [price, quantity, currentTotal += Number(quantity)]);
     const maxTotal = relevantBids.reduce((acc, [_, quantity]) => acc + Number(quantity), 0);
 
-    return <div>
+    return <div className="p-3">
         {bidsWithTotal?.map(([price, quantity, total]) => <Bid maxTotal={maxTotal} total={total} key={price} price={price} quantity={quantity} />)}
     </div>
 }
@@ -20,7 +20,6 @@ function Bid({ price, quantity, total, maxTotal }: { price: string, quantity: st
                 width: "100%",
                 backgroundColor: "transparent",
                 overflow: "hidden",
-                marginTop: "1px",
                 padding: "2px"
             }}
         >
@@ -43,7 +42,7 @@ function Bid({ price, quantity, total, maxTotal }: { price: string, quantity: st
                 <div className="ml-10">
                     {quantity}
                 </div>
-                <div>
+                <div className="ml-5">
                     {total.toFixed(2)}
                 </div>
             </div>

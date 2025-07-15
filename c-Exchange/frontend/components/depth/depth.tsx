@@ -60,12 +60,12 @@ const Header = () => {
 }
 
 const TableHeader = () => {
-    return <div className="flex justify-around mb-3">
+    return <div className="flex justify-around mb-1">
                 <p className="text-white font-medium truncate text-sm font-semibold ">Price (USD)</p>
 
-                <p className="text-white font-medium truncate text-sm font-semibold ">Size</p>
+                <p className="text-white font-medium truncate text-sm font-semibold mr-3">Size</p>
                 
-                <p className="text-white font-medium truncate text-sm font-semibold ">Total</p>
+                <p className="text-white font-medium truncate text-sm font-semibold mr-5">Total</p>
             </div>
       
 }
