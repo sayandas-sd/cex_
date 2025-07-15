@@ -3,7 +3,7 @@ const express = require("express");
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 const url = 'https://api.backpack.exchange';
 
@@ -20,13 +20,12 @@ app.use("/", createProxyMiddleware({
   target: url,
   changeOrigin: true,
    onProxyReq: (proxyReq, req, res) => {
-
+      proxyReq.setHeader("X-API-KEY", process.env.BACKPACK_API_KEY);
    },
-    onProxyRes: (proxyRes, req, res) => {
-
-   }
+    
 }));
 
 app.listen(port, () => {
   console.log(`proxy server is running on ${port}`);
 })
+
