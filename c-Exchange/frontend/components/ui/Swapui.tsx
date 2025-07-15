@@ -50,7 +50,7 @@ export const Swapui = () => {
                                                     alt="USD Logo"
                                                     width={24}
                                                     height={24}
-                                                    className="z-10 rounded-full h-6 w-6 ml-2"
+                                                    className="z-10 rounded-full h-6 w-6 ml-2 mt-2"
                                                 />
                                             </div>
                                             </div>
@@ -86,38 +86,6 @@ export const Swapui = () => {
                                 </div>
                             </div>
                         </div>
-
-
-                        {/* <div className="flex flex-col gap-2">
-                            <div className="flex items-center justify-between flex-row">
-                                <p className="text-xs font-semibold text-gray-400">Price</p>
-                            </div>
-                        </div> 
-                        <div className="relative">
-                            <div className="flex flex-col relative">
-                                <input step="0.01" placeholder="0" className="h-12 rounded-lg  bg-[#202126] pr-12 text-right text-2xl leading-9 text-[$text] placeholder:text-gray-500 transition " type="text" inputMode="numeric"/>
-                                <div className="flex flex-row absolute right-1 top-1 p-2">
-                                    <div className="relative">
-                                         <Image src={'/usdc.webp'} alt="USD Logo" width={24} height={24} className="z-10 rounded-full h-6 w-6 ml-10"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <div className="flex items-center justify-between flex-row">
-                                <p className="text-xs font-semibold text-gray-400">Quantity</p>
-                            </div>
-                        </div> 
-                        <div className="relative">
-                            <div className="flex flex-col relative">
-                                <input step="0.01" placeholder="0" className="h-12 rounded-lg  bg-[#202126] pr-12 text-right text-2xl leading-9 text-[$text] placeholder:text-gray-500 transition " type="text" inputMode="numeric"/>
-                                <div className="flex flex-row absolute right-1 top-1 p-2">
-                                    <div className="relative">
-                                         <Image src={'/sol.webp'} alt="USD Logo" width={24} height={24} className="z-10 rounded-full h-6 w-6 ml-10"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> */}
 
                         <div className="flex justify-end flex-row text-right">
                             <p className="font-medium pr-2 text-sm ">≈ 0.00 USDC</p>

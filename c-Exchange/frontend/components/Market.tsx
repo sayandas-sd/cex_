@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export const MarketView = () => {
+    
 
     return <div>
         <div className="flex items-center flex-row bg-[#14151C] relative w-full rounded-lg">
