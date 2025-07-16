@@ -1,11 +1,11 @@
 import { Ticker } from "./types";
 
 
-export const BASE_URL = "wss://ws.backpack.exchange/"
+export const BASE_URL = "wss://ws.backpack.exchange"
 
 export class SignalingManager {
     private ws: WebSocket;
-    private callbacks: any = {};
+    private callbacks: {[type: string]: any[]} = {};
     private bufferedMessages: any[] = [];
     private id: number;
     private static instance: SignalingManager;
@@ -77,6 +77,7 @@ export class SignalingManager {
         this.callbacks[type] = this.callbacks[type] || [];
         this.callbacks[type].push({ callback, id });
     }
+
 
     async deRegisterCallback(type: string, id: string) {
         if (this.callbacks[type]) {

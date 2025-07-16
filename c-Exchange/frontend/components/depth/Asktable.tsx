@@ -2,7 +2,7 @@
 export const AskTable = ({ asks }: { asks: [string, string][] }) => {
 
     let currentTotal = 0;
-    const relevantAsks = asks.slice(0, 12);
+    const relevantAsks = asks.slice(0, 13);
     relevantAsks.reverse();
 
     let asksWithTotal: [string, string, number][] = [];
@@ -38,10 +38,10 @@ function Ask({price, quantity, total, maxTotal}: {price: string, quantity: strin
             position: "absolute",
             top: 0,
             left: 0,
-            width: `${(100 * total) / maxTotal}%`,
+            width: `${(90 * total) / maxTotal}%`,
             height: "100%",
             background: "rgba(228, 75, 68, 0.325)",
-            transition: "width 0.3s ease-in-out",
+            transition: "width 0.2s ease-in-out",
             border: "#14151c solid 1px"
             }}
         ></div>
