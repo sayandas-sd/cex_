@@ -18,7 +18,6 @@ export const Depth = ({market} : {market: string}) => {
         })
 
         getTicker(market).then(t => setPrice(t.lastPrice));
-        
 
     }, [])
 
