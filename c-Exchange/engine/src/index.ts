@@ -1,4 +1,5 @@
 import { createClient } from "redis";
+import { Engine } from "./trade/engine";
 
 async function main() {
     const engine = new Engine();
