@@ -15,6 +15,14 @@ export interface Order {
     userId: string;
 }
 
+export interface Fill {
+    price: string;
+    qty: number;
+    tradeId: number;
+    otherUserId: string;
+    markerOrderId: string;
+}
+
 
 interface DepthPayload {
       bids: [string, string][];
