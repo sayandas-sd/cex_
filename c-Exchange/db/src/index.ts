@@ -4,11 +4,11 @@ import { DbMessage } from './types';
 
 
 const pgClient = new Client({
-    user: 'postgres',
+    user: 'your_user',
     host: 'localhost',
-    database: 'postgres',
-    password: 'mysecretpassword',
-    port: 5432,
+    database: 'my_database',
+    password: 'your_password',
+    port: 5431,
 });
 
 pgClient.connect();
