@@ -31,7 +31,7 @@ export type TradeAddedMessage = {
         m: boolean,
         p: string,
         q: string,
-        s: string, // symbol
+        s: string, 
     }
 }
 
