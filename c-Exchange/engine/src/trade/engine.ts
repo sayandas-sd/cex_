@@ -252,12 +252,12 @@ export class Engine {
         
         fills.forEach(fill => {
             RedisManager.getInstance().publishMessage(`trade@${market}`, {
-                //@ts-ignore
+                
                 stream: `trade@${market}`,
                 data: {
                     e: "trade",
                     t: fill.tradeId,
-                    m: fill.otherUserId === userId, // TODO: Is this right?
+                    m: fill.otherUserId === userId, 
                     p: fill.price,
                     q: fill.qty.toString(),
                     s: market,
@@ -276,7 +276,6 @@ export class Engine {
         const updatedAsks = depth?.asks.filter(x => x[0] === price);
         
         RedisManager.getInstance().publishMessage(`depth@${market}`, {
-             //@ts-ignore
             stream: `depth@${market}`,
             data: {
                 a: updatedAsks.length ? updatedAsks : [[price, "0"]],
@@ -297,7 +296,6 @@ export class Engine {
             const updatedBid = depth?.bids.find(x => x[0] === price);
             console.log("publish ws depth updates")
             RedisManager.getInstance().publishMessage(`depth@${market}`, {
-                 //@ts-ignore
                 stream: `depth@${market}`,
                 data: {
                     a: updatedAsks,
@@ -311,7 +309,6 @@ export class Engine {
            const updatedAsk = depth?.asks.find(x => x[0] === price);
            console.log("publish ws depth updates")
            RedisManager.getInstance().publishMessage(`depth@${market}`, {
-             //@ts-ignore
                stream: `depth@${market}`,
                data: {
                    a: updatedAsk ? [updatedAsk] : [],

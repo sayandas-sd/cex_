@@ -1,6 +1,7 @@
 import { createClient, RedisClientType } from "redis"
 import { DbMessage } from "./types/dbMessage";
 import { MessageToApi } from "./types/orderbookMessage";
+import { DepthUpdateMessage, TradeAddedMessage } from "./types/toWs";
 
 export class RedisManager {
     private client: RedisClientType;
@@ -22,7 +23,7 @@ export class RedisManager {
         this.client.lPush("db_process", JSON.stringify(message));
     }
 
-    public publishMessage(channel: string, message: MessageToApi) {
+    public publishMessage(channel: string, message: MessageToApi | TradeAddedMessage | DepthUpdateMessage) {
         this.client.publish(channel, JSON.stringify(message));
     }
 
