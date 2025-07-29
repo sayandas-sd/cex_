@@ -1,5 +1,6 @@
 import { WebSocket } from "ws";
 import { SubscriptionManager } from "./SuscriptionManager";
+import { User } from "./User";
 
 
 
