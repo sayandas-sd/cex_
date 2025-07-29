@@ -1,4 +1,7 @@
 import { WebSocket } from "ws";
+import { OutgoingMessage } from "./types/out";
+import { IncomingMessage, SUBSCRIBE, UNSUBSCRIBE } from "./types/in";
+import { SubscriptionManager } from "./SuscriptionManager";
 
 
 export class User {
