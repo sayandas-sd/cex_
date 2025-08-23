@@ -16,10 +16,10 @@ export const Marketdata = () => {
   return (
     <div className="flex flex-col flex-1 max-w-[1280px] w-full">
       <div className="flex flex-col min-w-[700px] flex-1 w-full">
-        <div className="flex flex-col w-full rounded-lg bg-baseBackgroundL1 px-5 py-3">
+        <div className="flex flex-col w-full rounded-lg px-5 py-3">
           <table className="w-full table-auto">
             <MarketHeader />
-            {tickers?.map((m) => <MarketRow market={m} />)}
+            {tickers?.map((m, index) => <MarketRow market={m} key={index}/>)}
           </table>
         </div>
       </div>
@@ -27,9 +27,10 @@ export const Marketdata = () => {
   );
 };
 
-function MarketRow({ market }: { market: Ticker }) {
+function MarketRow({ market } : { market: Ticker }) {
   const router = useRouter();
   return (
+    <tbody>
     <tr className="cursor-pointer border-t border-baseBorderLight hover:bg-white/7 w-full" onClick={() => router.push(`/trade/${market.symbol}`)}>
       <td className="px-1 py-3">
         <div className="flex shrink">
@@ -79,6 +80,7 @@ function MarketRow({ market }: { market: Ticker }) {
         </p>
       </td> 
     </tr>
+    </tbody>
   );
 }
 
@@ -111,9 +113,9 @@ function MarketHeader() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="lucide lucide-arrow-down h-4 w-4"
               >
                 <path d="M12 5v14"></path>
